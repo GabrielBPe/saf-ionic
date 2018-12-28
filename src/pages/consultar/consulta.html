@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Consultar
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+<div *ngIf='consulta'><button ion-button full (click)="novaConsulta()">Nova Consulta</button></div>
+
+  <div *ngIf='!consulta'>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <button ion-button full (click)="consultar()">Consultar</button>
+
+  </div>
+
+
+<div *ngIf='consulta'>
+    <ion-card>
+        <ion-card-header>
+          Rio De Janeiro
+        </ion-card-header>
+        <ion-card-content>
+          <b>Campeão</b><span>G. Medina</span><br>
+          <b>Vice</b><span>F. Toledo</span><br>
+          <b>Terceiro 1</b><span>I. Gouveia</span><br>
+          <b>Terceiro 2</b><span>I. Ferreira</span>
+        </ion-card-content>
+      </ion-card>
+    
+      <ion-card>
+        <ion-card-header>
+          Surf Ranch
+        </ion-card-header>
+        <ion-card-content>
+          <b>Campeão</b><span>G. Medina</span><br>
+          <b>Vice</b><span>F. Toledo</span><br>
+          <b>Terceiro 1</b><span>I. Gouveia</span><br>
+          <b>Terceiro 2</b><span>I. Ferreira</span>
+        </ion-card-content>
+      </ion-card>
+    
+      <ion-card>
+        <ion-card-header>
+          Bells
+        </ion-card-header>
+        <ion-card-content>
+          <b>Campeão</b><span>G. Medina</span><br>
+          <b>Vice</b><span>F. Toledo</span><br>
+          <b>Terceiro 1</b><span>I. Gouveia</span><br>
+          <b>Terceiro 2</b><span>I. Ferreira</span>
+        </ion-card-content>
+      </ion-card>
+    
+      <ion-card>
+        <ion-card-header>
+          Portugal
+        </ion-card-header>
+        <ion-card-content>
+          <b>Campeão</b><span>G. Medina</span><br>
+          <b>Vice</b><span>F. Toledo</span><br>
+          <b>Terceiro 1</b><span>I. Gouveia</span><br>
+          <b>Terceiro 2</b><span>I. Ferreira</span>
+        </ion-card-content>
+      </ion-card>
+</div>
+ 
+
+</ion-content>
