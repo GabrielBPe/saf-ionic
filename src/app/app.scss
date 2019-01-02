@@ -14,3 +14,27 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.toolbar-background {
+    background-color: #0ba7f1;
+}
+
+.toolbar-title {
+    color: white !important;
+}
+
+.tab-button-text {
+    color:  white
+}
+
+.tab-button-icon::before {
+    color:  white
+}
+
+.tabbar {
+    background: #0ba7f1 !important;
+}
+
+.button-full  {
+    background: #0ba7f1 !important;
+}

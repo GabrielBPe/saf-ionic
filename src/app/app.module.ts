@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { ConsultaPage } from '../pages/consultar/consulta';
 import { ApostaPage } from '../pages/apostar/aposta';
 import { HomePage } from '../pages/home/home';
+import { RankingPage } from '../pages/ranking/ranking';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -17,6 +18,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ConsultaPage,
     ApostaPage,
     HomePage,
+    RankingPage,
     TabsPage
   ],
   imports: [
@@ -29,6 +31,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ConsultaPage,
     ApostaPage,
     HomePage,
+    RankingPage,
     TabsPage
   ],
   providers: [
