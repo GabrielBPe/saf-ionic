@@ -4,6 +4,7 @@ page-home {
 
 .img-logo {
     width: 32%;
+    margin-top: 5px
 }
 
 .carousel-inner {
@@ -20,4 +21,13 @@ span {
 
 ion-item-group {
     margin-top: 1.5rem
+}
+
+.fab {
+    display: inline;
+    font-size: 1rem
+}    
+
+h5 {
+    display: inline ;
 }
