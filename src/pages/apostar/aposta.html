@@ -7,18 +7,7 @@
 </ion-header>
 
 <ion-content>
-    <ion-card>
-        <img src="../../assets/imgs/barrinha.jpg"/>
-        <ion-card-content>
-          <ion-card-title>
-              Rio de Janeiro
-            </ion-card-title>
-          <p>
-              Etapa que ganhou notoriedade com o ultimo ano, com as pesadas ondas da barrinha!<br>
-              <b>Atual Campeão</b> - Felipe Toledo
-          </p>
-        </ion-card-content>
-      </ion-card>
+   
 
   <form #aposta="ngForm" (ngSubmit)="onSubmit(aposta)">
     <ion-list>
@@ -83,5 +72,18 @@
     </ion-list>
     <button class="btn-save-bet" ion-button full type="submit">Salvar Apostar</button>
   </form>
+
+  <ion-card>
+      <img src="../../assets/imgs/barrinha.jpg"/>
+      <ion-card-content>
+        <ion-card-title>
+            Rio de Janeiro
+          </ion-card-title>
+        <p>
+            Etapa que ganhou notoriedade com o ultimo ano, com as pesadas ondas da barrinha!<br>
+            <b>Atual Campeão</b> - Felipe Toledo
+        </p>
+      </ion-card-content>
+    </ion-card>
 
 </ion-content>
