@@ -8,67 +8,34 @@
 
 <ion-content>
 
-<div *ngIf='consulta'><button ion-button full (click)="novaConsulta()">Nova Consulta</button></div>
+  <div *ngIf='consulta'><button ion-button full (click)="novaConsulta()">Nova Consulta</button></div>
 
   <div *ngIf='!consulta'>
-    <ion-item>
-      <ion-label floating>Email</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-    <button ion-button full (click)="consultar()">Consultar</button>
-
+      <form #email="ngForm" (ngSubmit)="onSubmit(email)">
+          <ion-list>
+            <ion-item>
+              <ion-label>Email:</ion-label>
+              <ion-input name='email' ngModel required #email="ngModel" type="email"></ion-input>
+            </ion-item>
+          </ion-list>
+          <button class="btn-save-bet" ion-button full type="submit">Salvar Apostar</button>
+        </form>
   </div>
 
 
-<div *ngIf='consulta'>
-    <ion-card>
-        <ion-card-header>
-          Rio De Janeiro
-        </ion-card-header>
-        <ion-card-content>
-          <b>Campeão</b><span>G. Medina</span><br>
-          <b>Vice</b><span>F. Toledo</span><br>
-          <b>Terceiro 1</b><span>I. Gouveia</span><br>
-          <b>Terceiro 2</b><span>I. Ferreira</span>
-        </ion-card-content>
-      </ion-card>
-    
-      <ion-card>
-        <ion-card-header>
-          Surf Ranch
-        </ion-card-header>
-        <ion-card-content>
-          <b>Campeão</b><span>G. Medina</span><br>
-          <b>Vice</b><span>F. Toledo</span><br>
-          <b>Terceiro 1</b><span>I. Gouveia</span><br>
-          <b>Terceiro 2</b><span>I. Ferreira</span>
-        </ion-card-content>
-      </ion-card>
-    
-      <ion-card>
-        <ion-card-header>
-          Bells
-        </ion-card-header>
-        <ion-card-content>
-          <b>Campeão</b><span>G. Medina</span><br>
-          <b>Vice</b><span>F. Toledo</span><br>
-          <b>Terceiro 1</b><span>I. Gouveia</span><br>
-          <b>Terceiro 2</b><span>I. Ferreira</span>
-        </ion-card-content>
-      </ion-card>
-    
-      <ion-card>
-        <ion-card-header>
-          Portugal
-        </ion-card-header>
-        <ion-card-content>
-          <b>Campeão</b><span>G. Medina</span><br>
-          <b>Vice</b><span>F. Toledo</span><br>
-          <b>Terceiro 1</b><span>I. Gouveia</span><br>
-          <b>Terceiro 2</b><span>I. Ferreira</span>
-        </ion-card-content>
-      </ion-card>
-</div>
- 
+  <div *ngIf='consulta'>
+    <ion-card *ngFor='let c of aposta.list'>
+      <ion-card-header>
+        {{c.id_Etapa}}
+      </ion-card-header>
+      <ion-card-content>
+        <b>Campeão</b><span>{{c.id_Campeao}}</span><br>
+        <b>Vice</b><span>{{c.id_Vice}}</span><br>
+        <b>Terceiro 1</b><span>{{c.id_T1}}</span><br>
+        <b>Terceiro 2</b><span>{{c.id_T2}}</span>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
 
 </ion-content>

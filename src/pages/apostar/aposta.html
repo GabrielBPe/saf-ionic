@@ -11,62 +11,51 @@
 
   <form #aposta="ngForm" (ngSubmit)="onSubmit(aposta)">
     <ion-list>
+        <ion-item>
+            <ion-label>Etapa</ion-label>
+            <ion-select  name="id_Etapa" ngModel required #campeao="ngModel">
+              <ion-option *ngFor='let e of etapas.list' value=3>{{ e.name }}</ion-option>
+            </ion-select>
+          </ion-item>
       <ion-item>
         <ion-label>Campeão</ion-label>
-        <ion-select name="campeao" ngModel required #campeao="ngModel">
-          <ion-option value="Medina">G. Medina</ion-option>
-          <ion-option value="Toledo">F. Toledo</ion-option>
-          <ion-option value="Ferreira">I. Ferreira</ion-option>
-          <ion-option value="Wilson">J. Wilson</ion-option>
-          <ion-option value="Gouveia">I. Gouveia</ion-option>
-          <ion-option value="Slater">K. Slater</ion-option>
+        <ion-select  name="id_Campeao" ngModel required #campeao="ngModel">
+          <ion-option *ngFor='let s of surfistas.list' value="{{s._id}}">{{ s.name }}</ion-option>
         </ion-select>
       </ion-item>
 
       <ion-item>
         <ion-label>Vice</ion-label>
-        <ion-select name="vice" ngModel required #vice="ngModel">
-          <ion-option value="Medina">G. Medina</ion-option>
-          <ion-option value="Toledo">F. Toledo</ion-option>
-          <ion-option value="Ferreira">I. Ferreira</ion-option>
-          <ion-option value="Wilson">J. Wilson</ion-option>
-          <ion-option value="Gouveia">I. Gouveia</ion-option>
-          <ion-option value="Slater">K. Slater</ion-option>
+        <ion-select name="id_Vice" ngModel required #vice="ngModel">
+          <ion-option *ngFor='let s of surfistas.list' value="{{s._id}}">{{ s.name }}</ion-option>
+
         </ion-select>
       </ion-item>
 
       <ion-item>
         <ion-label>Terceiro 1</ion-label>
-        <ion-select name="t1" ngModel required #t1="ngModel">
-          <ion-option value="Medina">G. Medina</ion-option>
-          <ion-option value="Toledo">F. Toledo</ion-option>
-          <ion-option value="Ferreira">I. Ferreira</ion-option>
-          <ion-option value="Wilson">J. Wilson</ion-option>
-          <ion-option value="Gouveia">I. Gouveia</ion-option>
-          <ion-option value="Slater">K. Slater</ion-option>
+        <ion-select name="id_T1" ngModel required #t1="ngModel">
+          <ion-option *ngFor='let s of surfistas.list' value="{{s._id}}">{{ s.name }}</ion-option>
+
         </ion-select>
       </ion-item>
 
       <ion-item>
         <ion-label>Terceiro 2</ion-label>
-        <ion-select name="t2" ngModel required #t2="ngModel">
-          <ion-option value="Medina">G. Medina</ion-option>
-          <ion-option value="Toledo">F. Toledo</ion-option>
-          <ion-option value="Ferreira">I. Ferreira</ion-option>
-          <ion-option value="Wilson">J. Wilson</ion-option>
-          <ion-option value="Gouveia">I. Gouveia</ion-option>
-          <ion-option value="Slater">K. Slater</ion-option>
+        <ion-select name="id_T2" ngModel required #t2="ngModel">
+          <ion-option *ngFor='let s of surfistas.list' value="{{s._id}}">{{ s.name }}</ion-option>
+
         </ion-select>
       </ion-item>
 
       <ion-item>
         <ion-label>NickName:</ion-label>
-        <ion-input name='nickname' ngModel required #nickname="ngModel" type="text"></ion-input>
+        <ion-input name='apostador.nickname' ngModel required #nickname="ngModel" type="text"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Email:</ion-label>
-        <ion-input name='email' ngModel required #email="ngModel" type="email"></ion-input>
+        <ion-input name='apostador.email' ngModel required #email="ngModel" type="email"></ion-input>
       </ion-item>
 
     </ion-list>
