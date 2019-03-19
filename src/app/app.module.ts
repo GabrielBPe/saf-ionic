@@ -16,6 +16,7 @@ import { ApostaService } from '../pages/apostar/aposta.service';
 import { ConsultaService } from '../pages/consultar/consulta.service';
 import { ModalPage } from '../pages/modal/modal';
 import { EditarApostaPage } from '../pages/editar-aposta/editar-aposta';
+import { EditarService } from '../pages/editar-aposta/editar.service';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { EditarApostaPage } from '../pages/editar-aposta/editar-aposta';
   ],
   providers: [
     ApostaService,
+    EditarService,
     ConsultaService,
     StatusBar,
     SplashScreen,

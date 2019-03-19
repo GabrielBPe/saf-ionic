@@ -14,7 +14,7 @@
         <ion-item>
             <ion-label>Etapa</ion-label>
             <ion-select  name="id_Etapa" ngModel required #campeao="ngModel">
-              <ion-option *ngFor='let e of etapas.list' value=3>{{ e.name }}</ion-option>
+              <ion-option *ngFor='let e of etapas.list' value={{e._id}}>{{ e.name }}</ion-option>
             </ion-select>
           </ion-item>
       <ion-item>
@@ -49,17 +49,17 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>NickName:</ion-label>
-        <ion-input name='apostador.nickname' ngModel required #nickname="ngModel" type="text"></ion-input>
+        <ion-label>Nome:</ion-label>
+        <ion-input name='apostador.nickname' placeholder='Seu nome sem espaço' ngModel required #nickname="ngModel" type="text"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Email:</ion-label>
-        <ion-input name='apostador.email' ngModel required #email="ngModel" type="email"></ion-input>
+        <ion-input name='apostador.email' ngModel required #email="ngModel" minlength='7' type="email"></ion-input>
       </ion-item>
 
     </ion-list>
-    <button class="btn-save-bet" ion-button full type="submit">Salvar Apostar</button>
+    <button class="btn-save-bet" ion-button full [disabled]="!aposta.valid" type="submit">Salvar Apostar</button>
   </form>
 
   <ion-card>

@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { EtapaModel } from '../../models/etapa';
 import { SurferModel } from '../../models/conv';
-import { ApostaService } from '../apostar/aposta.service';
+import { EditarService } from './editar.service';
+import { ConsultaPage } from '../consultar/consulta';
 
 /**
  * Generated class for the EditarApostaPage page.
@@ -27,12 +28,26 @@ export class EditarApostaPage implements OnInit {
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public alertCtrl: AlertController,
-    private service: ApostaService) {
+    private service: EditarService,
+    public loadingCtrl: LoadingController) {
   }
 
   ngOnInit(){
     console.log(this.idAposta);
+    this.getSurfers();
+    this.getStage();
+    
+    const loader = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 1000
+    });
+    loader.present();
   }
+  
+
+//   itemTapped() {
+//     this.navCtrl.push(ConsultaPage);
+// }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditarApostaPage');
@@ -59,7 +74,7 @@ export class EditarApostaPage implements OnInit {
       if (dados.status === 200) {
         const alert = this.alertCtrl.create({
           title: 'Aposta Salva',
-          message: 'Lembre-se que voce pode consultar sua aposta a qualquer momento na aba de CONSULTA, e caso queira editar sua aposta basta enviar uma nova aposta, assim ela será atualizada de forma instantânea! Tmjjj, boas ondas!' , 
+          message: this.idAposta, 
           buttons: ['OK']
         });
         alert.present();  

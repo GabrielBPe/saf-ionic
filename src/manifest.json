@@ -3,11 +3,40 @@
   "short_name": "SAF",
   "start_url": "index.html",
   "display": "standalone",
-  "icons": [{
+  "icons": [
+    {
+      "src": "assets/imgs/favicon.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "assets/imgs/favicon.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "assets/imgs/favicon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },{
+      "src": "assets/imgs/favicon.png",
+    "type": "image/png",
+    "sizes": "128x128"
+  }, {
     "src": "assets/imgs/favicon.png",
-    "sizes": "512x512",
-    "type": "image/png"
-  }],
+    "type": "image/png",
+    "sizes": "152x152"
+  }, {
+    "src": "assets/imgs/favicon.png",
+    "type": "image/png",
+    "sizes": "144x144"
+  }, {
+    "src": "assets/imgs/favicon.png",
+    "type": "image/png",
+    "sizes": "192x192"
+  }
+  ],
   "background_color": "#4e8ef7",
   "theme_color": "#4e8ef7"
 }
+

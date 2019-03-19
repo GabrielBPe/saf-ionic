@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 import { ConsultaService } from './consulta.service';
-import { ModalPage } from '../modal/modal';
+import { EditarApostaPage } from '../editar-aposta/editar-aposta';
 
 @Component({
   selector: 'page-consulta',
@@ -10,6 +10,7 @@ import { ModalPage } from '../modal/modal';
 export class ConsultaPage {
 
 consulta: boolean = false;
+editar: boolean = false;
 
   // surfista: any[] = [];
   // etapa: any[] = [];
@@ -20,10 +21,9 @@ consulta: boolean = false;
   constructor(public navCtrl: NavController, public service: ConsultaService, public modalCtrl: ModalController) {
   }
 
-  logIn() {
-    let profileModal = this.modalCtrl.create(ModalPage);
+  ActiveEdit() {
+    let profileModal = this.modalCtrl.create(EditarApostaPage);
     profileModal.present();
-
     profileModal.onDidDismiss(data => {  
       console.log(data);
     });
@@ -47,6 +47,10 @@ consulta: boolean = false;
     this.consulta = true;
   }
 
+  // itemTapped() {
+  //     this.editar = true;
+  //      this.navCtrl.push(EditarApostaPage);
+  //   }
 
   novaConsulta() {
     this.consulta = false;
