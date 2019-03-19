@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { ConsultaService } from './consulta.service';
+import { ModalPage } from '../modal/modal';
 
 @Component({
   selector: 'page-consulta',
@@ -14,8 +15,18 @@ consulta: boolean = false;
   // etapa: any[] = [];
   aposta: any[] = [];
 
-  constructor(public navCtrl: NavController, public service: ConsultaService) {
+  idAposta = this.aposta;
 
+  constructor(public navCtrl: NavController, public service: ConsultaService, public modalCtrl: ModalController) {
+  }
+
+  logIn() {
+    let profileModal = this.modalCtrl.create(ModalPage);
+    profileModal.present();
+
+    profileModal.onDidDismiss(data => {  
+      console.log(data);
+    });
   }
 
   // getSurfers(): void {

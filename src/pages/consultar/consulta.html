@@ -11,29 +11,34 @@
   <div *ngIf='consulta'><button ion-button full (click)="novaConsulta()">Nova Consulta</button></div>
 
   <div *ngIf='!consulta'>
-      <form #email="ngForm" (ngSubmit)="onSubmit(email)">
-          <ion-list>
-            <ion-item>
-              <ion-label>Email:</ion-label>
-              <ion-input name='email' ngModel required #email="ngModel" type="email"></ion-input>
-            </ion-item>
-          </ion-list>
-          <button class="btn-save-bet" ion-button full type="submit">Salvar Apostar</button>
-        </form>
+    <form #email="ngForm" (ngSubmit)="onSubmit(email)">
+      <ion-list>
+        <ion-item>
+          <ion-label>Email:</ion-label>
+          <ion-input name='email' ngModel required #email="ngModel" type="email"></ion-input>
+        </ion-item>
+      </ion-list>
+      <button class="btn-save-bet" ion-button full type="submit">Salvar Apostar</button>
+    </form>
   </div>
 
 
   <div *ngIf='consulta'>
     <ion-card *ngFor='let c of aposta.list'>
       <ion-card-header>
-        {{c.id_Etapa}}
+        {{c.id_Etapa}} {{ c._id }}
       </ion-card-header>
       <ion-card-content>
+
+        <ion-select disabled name="id_Etapa" ngModel required #campeao="ngModel">
+          <ion-option selected-text value=3>{{ c.id_Campeao }}</ion-option>
+        </ion-select>
         <b>Campeão</b><span>{{c.id_Campeao}}</span><br>
         <b>Vice</b><span>{{c.id_Vice}}</span><br>
         <b>Terceiro 1</b><span>{{c.id_T1}}</span><br>
         <b>Terceiro 2</b><span>{{c.id_T2}}</span>
       </ion-card-content>
+      <page-editar-aposta [idAposta]="c._id"></page-editar-aposta>
     </ion-card>
   </div>
 
