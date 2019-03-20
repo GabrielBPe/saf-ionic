@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators';
 import { SurferModel } from '../../models/conv'
+import { EtapaModel } from '../../models/etapa';
 // import {environment} from '../../environments/environment';
 
 
@@ -26,8 +27,8 @@ export class ConsultaService {
     )
   }
 
-  saveBet(aposta): Observable<any> {
-    return this.http.post(`https://safapi.herokuapp.com/v1/aposta`, aposta.value);
+  editBet(editar): Observable<any> {
+    return this.http.put(`https://safapi.herokuapp.com/v1/aposta/${editar.value._id}`, editar.value);
   }
 
   listBet(email): Observable<any> {
@@ -35,6 +36,13 @@ export class ConsultaService {
       map(res => res)
     );
   }
+
+  listStage(): Observable<EtapaModel[]> {
+    return this.http.get<EtapaModel[]>( `https://safapi.herokuapp.com/v1/etapa`).pipe(
+      map(res => res)
+    );
+  }
+
 
 
 
