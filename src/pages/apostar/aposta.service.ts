@@ -11,6 +11,8 @@ import { EtapaModel } from '../../models/etapa';
 //   headers: new HttpHeaders({'Content-Type': 'application/json'})
 // };
 
+
+
 @Injectable() 
 export class ApostaService {
 
@@ -21,18 +23,18 @@ export class ApostaService {
   }
 
   getTodo(): Observable<SurferModel[]>{
-    return this.http.get<SurferModel[]>(`https://safapi.herokuapp.com/v1/surfista`)
+    return this.http.get<SurferModel[]>(`http://localhost:3000/v1/surfista`)
     .pipe(
       map(res => res)
     )
   }
 
   saveBet(aposta): Observable<any> {
-    return this.http.post(`https://safapi.herokuapp.com/v1/aposta`, aposta.value);
+    return this.http.post(`http://localhost:3000/v1/aposta`, aposta.value);
   }
 
   listStage(): Observable<EtapaModel[]> {
-    return this.http.get<EtapaModel[]>( `https://safapi.herokuapp.com/v1/etapa`).pipe(
+    return this.http.get<EtapaModel[]>( `http://localhost:3000/v1/etapa`).pipe(
       map(res => res)
     );
   }

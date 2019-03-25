@@ -1,15 +1,15 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Consultar
+      Editar Apostas
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
 
-  <div *ngIf='consulta'><button ion-button full (click)="novaConsulta()">Nova Consulta</button></div>
-  <div *ngIf='consulta'><button ion-button full (click)="edita()">Editar</button></div>
+  <div *ngIf='consulta'><button class="btn-cinza" ion-button full (click)="novaConsulta()">Nova Consulta</button></div>
+  <div *ngIf='consulta'><button class="btn-cinza" ion-button full (click)="edita()">Editar</button></div>
 
 
   <div *ngIf='!consulta'>
@@ -19,8 +19,8 @@
           <ion-label>Email:</ion-label>
           <ion-input name='email' ngModel required #email="ngModel" minlength='7' type="email"></ion-input>
         </ion-item>
+        <button class="btn-cinza" ion-button full [disabled]="!email.valid" (click)="consultar(email)">Consultar Apostas</button>
       </ion-list>
-      <button class="btn-save-bet" ion-button full [disabled]="!email.valid" (click)="consultar(email)">Consultar Apostas</button>
     </form>
   </div>
 
@@ -28,13 +28,14 @@
   <div *ngIf='consulta'>
     <ion-card *ngFor='let c of aposta.list'>
       <ion-card-header>
-        {{c.apostador.nickname}}
+        {{c.nickname}} 
       </ion-card-header>
       <ion-card-content>
         <b>Campeão</b><span>{{c.id_Campeao}}</span><br>
         <b>Vice</b><span>{{c.id_Vice}}</span><br>
         <b>Terceiro 1</b><span>{{c.id_T1}}</span><br>
-        <b>Terceiro 2</b><span>{{c.id_T2}}</span>
+        <b>Terceiro 2</b><span>{{c.id_T2}}</span><br><br>
+        <small>Id Aposta</small> <small style="float:right;">{{ c._id }}</small>
         <!-- <button class="btn-save-bet" ion-button full (click)='ActiveEdit()'>Salva /r Apostar</button> -->
       </ion-card-content>
       <!-- <page-editar-aposta [idAposta]="c._id"></page-editar-aposta> -->
@@ -45,7 +46,7 @@
     <form #editar="ngForm" (ngSubmit)="onSubmit(editar)">
         <ion-list>
             <ion-item>
-                <ion-label>Etapa</ion-label>
+                <ion-label>Id Aposta</ion-label>
                 <ion-select  name="_id" ngModel required #idAposta="ngModel">
                   <ion-option *ngFor='let c of aposta.list' value={{c._id}}>{{ c._id }}</ion-option>
                 </ion-select>
@@ -89,16 +90,16 @@
     
           <ion-item>
             <ion-label>Nome:</ion-label>
-            <ion-input name='apostador.nickname' placeholder='Seu nome sem espaço' ngModel required #nickname="ngModel" type="text"></ion-input>
+            <ion-input name='nickname' placeholder='Seu nome sem espaço' ngModel required #nickname="ngModel" type="text"></ion-input>
           </ion-item>
     
           <ion-item>
             <ion-label>Email:</ion-label>
-            <ion-input name='apostador.email' ngModel required #email="ngModel" minlength='7' type="email"></ion-input>
+            <ion-input name='email' ngModel required #email="ngModel" minlength='7' type="email"></ion-input>
           </ion-item>
     
         </ion-list>
-        <button class="btn-save-bet" ion-button full [disabled]="!editar.valid" type="submit">Salvar Apostar</button>
+        <button class="btn-cinza" ion-button full [disabled]="!editar.valid" type="submit">Salvar Apostar</button>
       </form>
     
 </div>

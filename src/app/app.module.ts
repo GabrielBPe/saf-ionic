@@ -14,7 +14,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from '@angular/common/http';
 import { ApostaService } from '../pages/apostar/aposta.service';
 import { ConsultaService } from '../pages/consultar/consulta.service';
-import { ModalPage } from '../pages/modal/modal';
 
 
 @NgModule({
@@ -24,8 +23,7 @@ import { ModalPage } from '../pages/modal/modal';
     ApostaPage,
     HomePage,
     RankingPage,
-    TabsPage,
-    ModalPage
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +38,6 @@ import { ModalPage } from '../pages/modal/modal';
     HomePage,
     RankingPage,
     TabsPage,
-    ModalPage
   ],
   providers: [
     ApostaService,

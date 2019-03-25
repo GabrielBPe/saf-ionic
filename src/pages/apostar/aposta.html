@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Apostar
+      Aposta aí, bro!
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -33,7 +33,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>Terceiro 1</ion-label>
+        <ion-label>Terceiro Colocado</ion-label>
         <ion-select name="id_T1" ngModel required #t1="ngModel">
           <ion-option *ngFor='let s of surfistas.list' value="{{s._id}}">{{ s.name }}</ion-option>
 
@@ -41,7 +41,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>Terceiro 2</ion-label>
+        <ion-label>Terceiro Colocado</ion-label>
         <ion-select name="id_T2" ngModel required #t2="ngModel">
           <ion-option *ngFor='let s of surfistas.list' value="{{s._id}}">{{ s.name }}</ion-option>
 
@@ -49,28 +49,28 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>Nome:</ion-label>
-        <ion-input name='apostador.nickname' placeholder='Seu nome sem espaço' ngModel required #nickname="ngModel" type="text"></ion-input>
+        <ion-label>Nickname:</ion-label>
+        <ion-input name='nickname' placeholder='Seu nome sem espaço' ngModel required #nickname="ngModel" type="text"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Email:</ion-label>
-        <ion-input name='apostador.email' ngModel required #email="ngModel" minlength='7' type="email"></ion-input>
+        <ion-input name='email' [(ngModel)]='apostador.email' required #email="ngModel" minlength='7' type="email"></ion-input>
       </ion-item>
 
     </ion-list>
-    <button class="btn-save-bet" ion-button full [disabled]="!aposta.valid" type="submit">Salvar Apostar</button>
+    <button class="btn-verde" ion-button full [disabled]="!aposta.valid" type="submit">SALVAR APOSTA</button>
   </form>
 
   <ion-card>
-      <img src="../../assets/imgs/barrinha.jpg"/>
+      <img src="../../assets/imgs/resenhaGC.jpeg"/>
       <ion-card-content>
         <ion-card-title>
-            Rio de Janeiro
+          GOLD COAST
           </ion-card-title>
         <p>
-            Etapa que ganhou notoriedade com o ultimo ano, com as pesadas ondas da barrinha!<br>
-            <b>Atual Campeão</b> - Felipe Toledo
+          Snapper Rocks é o palco de abertura do CT. As direitas extensas com paredes altamente manobráveis e seções tubulares privilegiam surfistas progressivos. É preciso muita leitura, fluidez e explosão. Os juízes querem ver variação de manobras e radicalidade! Uma curiosidade é que a perfeição dessa onda tem interferência da mão humana. A areia da dragagem do rio Tweed é depositada na região e forma o famoso “Superbanks”, uma super bancada que produz altas ondas de Snapper até Kirra, por quase 2km. Kirra, aliás, é palanque alternativo do evento e seus tubos lendários dão as caras quando o mar quebra clássico na região.<br>
+            <b>Atual Campeão</b> - Julian Wilson
         </p>
       </ion-card-content>
     </ion-card>
