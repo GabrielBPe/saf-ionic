@@ -19,8 +19,8 @@ export class ConsultaPage implements OnInit {
   idAposta = this.aposta;
 
   constructor(
-    public navCtrl: NavController, 
-    public service: ConsultaService, 
+    public navCtrl: NavController,
+    public service: ConsultaService,
     public modalCtrl: ModalController,
     public alertCtrl: AlertController) {
   }
@@ -61,38 +61,42 @@ export class ConsultaPage implements OnInit {
     this.consulta = true;
   }
 
-  onSubmit(editar){
+  onSubmit(editar) {
     this.viewEdit = false;
     this.service.editBet(editar)
-    .subscribe(dados => {
-      if (dados.status === 200) {
-        const alert = this.alertCtrl.create({
-          title: 'Aposta Salva',
-          message: 'Lembre-se que voce pode consultar sua aposta a qualquer momento na aba de CONSULTA, e caso queira editar sua aposta basta enviar uma nova aposta, assim ela será atualizada de forma instantânea! Tmjjj, boas ondas!' , 
-          buttons: ['OK']
-        });
-        alert.present();  
-      } else {
-        const alert = this.alertCtrl.create({
-          title: 'Erro ao salvar aposta',
-          message: 'Mensagem de erro' , 
-          buttons: ['OK']
-        });
-        alert.present();  
-      }
-    });
+      .subscribe(dados => {
+          const alert = this.alertCtrl.create({
+            title: 'Aposta Salva',
+            message: 'Lembre-se que voce pode consultar sua aposta a qualquer momento na aba de CONSULTA, e caso queira editar sua aposta basta enviar uma nova aposta, assim ela será atualizada de forma instantânea! Tmjjj, boas ondas!',
+            buttons: ['OK']
+          });
+          alert.present();
+        } 
+      ,
+        function (erro) {
 
+          const alert = this.alertCtrl.create({
+            title: 'Erro ao salvar aposta',
+            message: 'Mensagem de erro',
+            buttons: ['OK']
+          });
+          alert.present();
+        }
     
     
-    console.log(editar.value);
-  }
+  );
 
-  edita() {
-    this.viewEdit = true;
-    this.consulta = false;
-  }
 
-  novaConsulta() {
-    this.consulta = false;
-  }
+
+  console.log(editar.value);
+}
+
+edita() {
+  this.viewEdit = true;
+  this.consulta = false;
+}
+
+novaConsulta() {
+  this.consulta = false;
+}
 }

@@ -66,22 +66,26 @@ export class ApostaPage implements OnInit {
     this.service.saveBet(aposta)
       .subscribe(dados => {
         console.log(dados);
-        if (dados.status === 200) {
+         
           const alert = this.alertCtrl.create({
             title: 'APOSTA ENVIADA!',
             message: 'Você pode consultar sua aposta na aba de CONSULTA e EDITAR antes do início da etapa! Boas ondas!',
             buttons: ['OK']
           });
           alert.present();
-        } if(dados.status == 400) {
-          const alert = this.alertCtrl.create({
-            title: 'Erro ao salvar aposta',
-            message: 'Mensagem de erro',
-            buttons: ['OK']
-          });
-          alert.present();
-        }
-      });
+        } 
+      ,
+    function (erro){
+    
+        const alert = this.alertCtrl.create({
+          title: 'Erro ao salvar aposta',
+          message: 'Mensagem de erro',
+          buttons: ['OK']
+        });
+        alert.present();
+      }
+    
+    );
 
     console.log(aposta.value);
   }
