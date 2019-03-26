@@ -18,23 +18,25 @@ export class ApostaService {
 
   http:HttpClient;
 
+
+
   constructor(http: HttpClient) {
     this.http = http;
   }
 
   getTodo(): Observable<SurferModel[]>{
-    return this.http.get<SurferModel[]>(`http://localhost:5000/v1/surfista`)
+    return this.http.get<SurferModel[]>(`http://13.58.115.13:5000/v1/surfista`)
     .pipe(
       map(res => res)
     )
   }
 
   saveBet(aposta): Observable<any> {
-    return this.http.post(`http://localhost:5000/v1/aposta`, aposta.value);
+    return this.http.post(`http://13.58.115.13:5000/v1/aposta`, aposta.value);
   }
 
   listStage(): Observable<EtapaModel[]> {
-    return this.http.get<EtapaModel[]>( `http://localhost:5000/v1/etapa`).pipe(
+    return this.http.get<EtapaModel[]>( `http://13.58.115.13:5000/v1/etapa`).pipe(
       map(res => res)
     );
   }
