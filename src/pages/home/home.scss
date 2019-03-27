@@ -32,3 +32,17 @@ ion-item-group {
 h5 {
     display: inline ;
 }
+
+@media (min-width: 846px) 
+{
+    .meio{
+        margin: 0 auto;
+    }
+    .img-logo {
+        display: none;
+    }
+    .img-carrousel{
+        width: 50% !important;
+        margin: auto;
+    }
+}
