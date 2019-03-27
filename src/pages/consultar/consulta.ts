@@ -67,13 +67,11 @@ export class ConsultaPage implements OnInit {
       .subscribe(dados => {
           const alert = this.alertCtrl.create({
             title: 'Aposta Salva',
-            message: 'Lembre-se que voce pode consultar sua aposta a qualquer momento na aba de CONSULTA, e caso queira editar sua aposta basta enviar uma nova aposta, assim ela será atualizada de forma instantânea! Tmjjj, boas ondas!',
+            message: 'Sua aposta foi editada. Apostas com surfista igual em posições diferentes serão automaticamente canceladas.',
             buttons: ['OK']
           });
           alert.present();
-        } 
-      ,
-        function (erro) {
+        }, err => {
 
           const alert = this.alertCtrl.create({
             title: 'Erro ao salvar aposta',

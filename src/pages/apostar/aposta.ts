@@ -60,23 +60,21 @@ export class ApostaPage implements OnInit {
     }
   };
 
-  apostador:any=[]
+  apostador: any = []
 
   onSubmit(aposta) {
     this.service.saveBet(aposta)
       .subscribe(dados => {
         console.log(dados);
-         
-          const alert = this.alertCtrl.create({
-            title: 'APOSTA ENVIADA!',
-            message: 'Você pode consultar sua aposta na aba de CONSULTA e EDITAR antes do início da etapa! Boas ondas!',
-            buttons: ['OK']
-          });
-          alert.present();
-        } 
-      ,
-    function (erro){
-    
+
+        const alert = this.alertCtrl.create({
+          title: 'APOSTA ENVIADA!',
+          message: 'Sua aposta foi editada. Apostas com surfista igual em posições diferentes serão automaticamente canceladas.',
+          buttons: ['OK']
+        });
+        alert.present();
+      }, err => {
+
         const alert = this.alertCtrl.create({
           title: 'Erro ao salvar aposta',
           message: 'Mensagem de erro',
@@ -84,8 +82,7 @@ export class ApostaPage implements OnInit {
         });
         alert.present();
       }
-    
-    );
+      );
 
     console.log(aposta.value);
   }
