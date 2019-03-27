@@ -31,14 +31,14 @@ export class RankingPage {
     this.rankingAno = true;
     this.rankingAustralia = false;
     this.rankingEuropa = false;
-    console.log('oi')
+      
   }
 
   europa() {
     this.rankingAno = false;
     this.rankingAustralia = false;
     this.rankingEuropa = true;
-    console.log('oi')
+      
 
   }
 
@@ -46,7 +46,7 @@ export class RankingPage {
     this.rankingAno = false;
     this.rankingAustralia = true;
     this.rankingEuropa = false;
-        console.log('oi')
+          
 
   }
 

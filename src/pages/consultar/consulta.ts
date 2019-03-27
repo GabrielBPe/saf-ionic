@@ -30,15 +30,11 @@ export class ConsultaPage implements OnInit {
     this.getSurfers();
   }
 
-
-
   getSurfers(): void {
     this.service.getTodo()
       .subscribe(res => {
         this.surfistas = res;
       });
-    console.log('---->');
-    console.log(this.surfistas)
   }
 
   getStage(): void {
@@ -46,8 +42,6 @@ export class ConsultaPage implements OnInit {
       .subscribe(res => {
         this.etapas = res;
       });
-    console.log('---->');
-    console.log(this.etapas)
   }
 
   consultar(email): void {
@@ -56,8 +50,8 @@ export class ConsultaPage implements OnInit {
       .subscribe(res => {
         this.aposta = res;
       });
-    console.log('---->');
-    console.log(this.aposta);
+
+    this.viewEdit = false;
     this.consulta = true;
   }
 
@@ -65,36 +59,36 @@ export class ConsultaPage implements OnInit {
     this.viewEdit = false;
     this.service.editBet(editar)
       .subscribe(dados => {
-          const alert = this.alertCtrl.create({
-            title: 'Aposta Salva',
-            message: 'Sua aposta foi editada. Apostas com surfista igual em posições diferentes serão automaticamente canceladas.',
-            buttons: ['OK']
-          });
-          alert.present();
-        }, err => {
+        const alert = this.alertCtrl.create({
+          title: 'Aposta Salva',
+          message: 'Sua aposta foi editada. Apostas com surfista igual em posições diferentes serão automaticamente canceladas.',
+          buttons: ['OK']
+        });
+        alert.present();
+      }, err => {
 
-          const alert = this.alertCtrl.create({
-            title: 'Erro ao salvar aposta',
-            message: 'Mensagem de erro',
-            buttons: ['OK']
-          });
-          alert.present();
-        }
-    
-    
-  );
+        const alert = this.alertCtrl.create({
+          title: 'Erro ao editar',
+          message: 'Não conseguimos editar sua aposta, verifique se o email e nickname estão iguais ao da aposta.',
+          buttons: ['OK']
+        });
+        alert.present();
+      });
+  }
 
+  edita() {
+    const alert = this.alertCtrl.create({
+      title: 'LEMBRE-SE',
+      message: 'Lembre-se de colocar o mesmo NICKNAME e EMAIL na edicao da aposta, caso contrário sua aposta poderá ser perdida.',
+      buttons: ['OK']
+    });
+    alert.present();
 
+    this.viewEdit = true;
+    this.consulta = false;
+  }
 
-  console.log(editar.value);
-}
-
-edita() {
-  this.viewEdit = true;
-  this.consulta = false;
-}
-
-novaConsulta() {
-  this.consulta = false;
-}
+  novaConsulta() {
+    this.consulta = false;
+  }
 }

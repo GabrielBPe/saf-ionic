@@ -27,8 +27,11 @@ export class ApostaPage implements OnInit {
   }
 
   ngOnInit() {
+  
     this.getSurfers();
     this.getStage();
+    console.log('Developer By: Gabriel Barbosa Pereira and Severino José da Costa Neto.')
+
   }
 
   getSurfers(): void {
@@ -36,17 +39,13 @@ export class ApostaPage implements OnInit {
       .subscribe(res => {
         this.surfistas = res;
       });
-    console.log('---->');
-    console.log(this.surfistas)
   }
 
   getStage(): void {
     this.service.listStage()
       .subscribe(res => {
         this.etapas = res;
-      });
-    console.log('---->');
-    console.log(this.etapas)
+      });    
   }
 
   aposta: any = {
@@ -65,8 +64,6 @@ export class ApostaPage implements OnInit {
   onSubmit(aposta) {
     this.service.saveBet(aposta)
       .subscribe(dados => {
-        console.log(dados);
-         
           const alert = this.alertCtrl.create({
             title: 'APOSTA ENVIADA!',
             message: 'Você pode consultar sua aposta na aba de CONSULTA e EDITAR antes do início da etapa! Boas ondas! Apostas com surfista igual em posições diferentes serão automaticamente canceladas.',
@@ -76,15 +73,11 @@ export class ApostaPage implements OnInit {
         }, err => {
   
           const alert = this.alertCtrl.create({
-            title: 'Erro ao salvar aposta',
-            message: 'Mensagem de erro',
+            title: 'Erro Ao Salvar',
+            message: 'Nickname ou email já usados, tente outro.',
             buttons: ['OK']
           });
           alert.present();
-        }
-    
-    );
-
-    console.log(aposta.value);
+        });
   }
 }
