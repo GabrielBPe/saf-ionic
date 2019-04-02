@@ -10,7 +10,6 @@ import { RankingPage } from '../pages/ranking/ranking';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from '@angular/common/http';
 import { ApostaService } from '../pages/apostar/aposta.service';
 import { ConsultaService } from '../pages/consultar/consulta.service';
@@ -43,7 +42,6 @@ import { ConsultaService } from '../pages/consultar/consulta.service';
     ApostaService,
     ConsultaService,
     StatusBar,
-    SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
