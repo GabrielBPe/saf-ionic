@@ -13,11 +13,11 @@
     <ion-list>
         <ion-item>
             <ion-label>Etapa</ion-label>
-            <ion-select  name="id_Etapa" ngModel required #campeao="ngModel">
-              <ion-option *ngFor='let e of etapas.list' value={{e._id}}>{{ e.name }}</ion-option>
+            <ion-select  name="id_Etapa" ngModel  #campeao="ngModel">
+              <ion-option *ngFor='let e of etapas' value={{e._id}}>{{ e.list.name }}</ion-option>
             </ion-select>
           </ion-item>
-      <ion-item>
+      <ion-item> 
         <ion-label>Campeão</ion-label>
         <ion-select  name="id_Campeao" ngModel required #campeao="ngModel">
           <ion-option *ngFor='let s of surfistas.list' value="{{s._id}}">{{ s.name }}</ion-option>

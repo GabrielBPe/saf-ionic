@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { ApostaService } from './aposta.service';
 import { SurferModel } from '../../models/conv';
-import { EtapaModel } from '../../models/etapa';
 
 @Component({
   selector: 'page-aposta',
@@ -15,7 +14,7 @@ export class ApostaPage implements OnInit {
   //     "id_Etapa": 
   //   }
   // ];
-  etapas: EtapaModel[] = [];
+  etapas: any[] = [];
   surfistas: SurferModel[] = [];
 
   constructor(public navCtrl: NavController,
@@ -44,7 +43,7 @@ export class ApostaPage implements OnInit {
   getStage(): void {
     this.service.listStage()
       .subscribe(res => {
-        this.etapas = res;
+        this.etapas.push(res);
       });    
   }
 
