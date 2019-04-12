@@ -9,7 +9,7 @@
 <ion-content>
 
   <div *ngIf='consulta'><button class="btn-cinza" ion-button full (click)="novaConsulta()">Nova Consulta</button></div>
-  <div *ngIf='consulta'><button class="btn-cinza" disabled ion-button full (click)="edita()">Editar</button></div>
+  <div *ngIf='consulta'><button class="btn-cinza" ion-button full (click)="edita()">Editar</button></div>
 
 
   <div *ngIf='!consulta'>
@@ -49,13 +49,13 @@
         <ion-item>
           <ion-label>Id Aposta</ion-label>
           <ion-select name="_id" ngModel #idAposta="ngModel">
-            <ion-option *ngFor='let c of aposta.list' value={{c._id}}>{{ c._id }}</ion-option>
+            <ion-option [value]="lastId">{{ lastId }}</ion-option>
           </ion-select>
         </ion-item>
         <ion-item>
           <ion-label>Etapa</ion-label>
-          <ion-select name="id_Etapa" ngModel #campeao="ngModel">
-            <ion-option *ngFor='let e of etapas' value={{e._id}}>{{ e.list.name }}</ion-option>
+          <ion-select  name="id_Etapa" ngModel  #campeao="ngModel">
+            <ion-option *ngFor='let e of lastStage' value={{e.list._id}}>{{ e.list.name }}</ion-option>
           </ion-select>
         </ion-item>
         <ion-item>

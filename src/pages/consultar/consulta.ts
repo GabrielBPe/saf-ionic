@@ -13,8 +13,11 @@ export class ConsultaPage implements OnInit {
 
   surfistas: any[] = [];
   etapas: any[] = [];
-  aposta: any[] = [];
+  aposta: any ;
   editar: any[] = [];
+  lastStage: any[] = [];
+
+  lastId: string;
 
   idAposta = this.aposta;
 
@@ -28,6 +31,7 @@ export class ConsultaPage implements OnInit {
   ngOnInit() {
     this.getStage();
     this.getSurfers();
+    this.getLastStage();
   }
 
   getSurfers(): void {
@@ -44,15 +48,24 @@ export class ConsultaPage implements OnInit {
       });
   }
 
+  getLastStage(): void {
+    this.service.getlastStage()
+      .subscribe(res => {
+        this.lastStage.push(res);
+      });    
+  }
+
   consultar(email): void {
     console.log(email.viewModel);
     this.service.listBet(email.viewModel)
       .subscribe(res => {
         this.aposta = res;
+        this.lastId = this.aposta.list[this.aposta.list.length - 1 ]._id;
+        this.viewEdit = false;
+    this.consulta = true;
       });
 
-    this.viewEdit = false;
-    this.consulta = true;
+    
   }
 
   onSubmit(editar) {

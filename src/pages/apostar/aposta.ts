@@ -9,11 +9,6 @@ import { SurferModel } from '../../models/conv';
 })
 export class ApostaPage implements OnInit {
 
-  // aposta: any [
-  //   {
-  //     "id_Etapa": 
-  //   }
-  // ];
   etapas: any[] = [];
   surfistas: SurferModel[] = [];
 

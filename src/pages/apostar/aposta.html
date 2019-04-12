@@ -14,7 +14,7 @@
         <ion-item>
             <ion-label>Etapa</ion-label>
             <ion-select  name="id_Etapa" ngModel  #campeao="ngModel">
-              <ion-option *ngFor='let e of etapas' value={{e._id}}>{{ e.list.name }}</ion-option>
+              <ion-option *ngFor='let e of etapas' value={{e.list._id}}>{{ e.list.name }}</ion-option>
             </ion-select>
           </ion-item>
       <ion-item> 
