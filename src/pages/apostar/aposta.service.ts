@@ -36,7 +36,7 @@ export class ApostaService {
   }
 
   listStage(): Observable<EtapaModel[]> {
-    return this.http.get<EtapaModel[]>( `http://13.58.115.13:5000/v1/etapa`).pipe(
+    return this.http.get<EtapaModel[]>( `http://13.58.115.13:5000/v1/etapa/ultima`).pipe(
       map(res => res)
     );
   }
