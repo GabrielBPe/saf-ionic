@@ -59,7 +59,7 @@
       </ion-item>
 
     </ion-list>
-    <button class="btn-verde" ion-button full disabled type="submit">SALVAR APOSTA</button>
+    <button class="btn-verde" ion-button full [disabled]="!aposta.valid" type="submit">SALVAR APOSTA</button>
   </form>
 
   <ion-card>
