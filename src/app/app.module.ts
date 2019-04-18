@@ -13,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { ApostaService } from '../pages/apostar/aposta.service';
 import { ConsultaService } from '../pages/consultar/consulta.service';
+import { RankingService } from '../pages/ranking/ranking.service';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { ConsultaService } from '../pages/consultar/consulta.service';
   providers: [
     ApostaService,
     ConsultaService,
+    RankingService,
     StatusBar,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

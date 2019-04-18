@@ -15,24 +15,15 @@
 
 <ion-content>
   <div class="btns-ranking">
-      <button class="btn-small" ion-button small (click)="ano()">2019</button>
+    <button class="btn-small" ion-button small>Gold Coast</button>
   </div>
-    
 
-    <ion-item-group *ngIf="rankingAno">
-        <ion-item-divider color="light">Anual</ion-item-divider>
-        <ion-item class="size-label-ranking">ESTAMOS TRABALHANDO PARA MOSTRAR NOSSO RANKING<br> DA MELHOR MANEIRA, PODE APOSTAR NORMALMENTE<BR> EM BREVE ESTAREMOS MOSTRANDO O RANKING DAS DUAS<BR>ETAPAS</ion-item>
-        <!-- <ion-item class="size-label-ranking">GabrielBP <span>300</span></ion-item>
-        <ion-item class="size-label-ranking">NetoSVC <span>290</span></ion-item>
-        <ion-item class="size-label-ranking">JosePE <span>290</span></ion-item>
-        <ion-item class="size-label-ranking">Antonio324 <span>280</span></ion-item>
-        <ion-item class="size-label-ranking">ManoJp <span>250</span></ion-item>
-        <ion-item class="size-label-ranking">ManoJp <span>250</span></ion-item>
-        <ion-item class="size-label-ranking">ManoJp <span>250</span></ion-item>
-        <ion-item class="size-label-ranking">ManoJp <span>250</span></ion-item>
-        <ion-item class="size-label-ranking">ManoJp <span>250</span></ion-item>
-        <ion-item class="size-label-ranking">ManoJp <span>250</span></ion-item>
-        <ion-item class="size-label-ranking">ManoJp <span>250</span></ion-item> -->
-      </ion-item-group>
+
+  <ion-item-group >
+    <ion-item-divider color="light">Ranking SAF</ion-item-divider>
+    <ion-item *ngFor='let e of apostas' class="size-label-ranking">{{ e.nickname }}
+      <span>{{ e.points }}</span>
+    </ion-item>
+  </ion-item-group>
 
 </ion-content>

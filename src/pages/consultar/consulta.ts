@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, ModalController, AlertController } from 'ionic-angular';
+import { NavController, ModalController, AlertController, LoadingController } from 'ionic-angular';
 import { ConsultaService } from './consulta.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class ConsultaPage implements OnInit {
 
   surfistas: any[] = [];
   etapas: any[] = [];
-  aposta: any ;
+  aposta: any;
   editar: any[] = [];
   lastStage: any[] = [];
 
@@ -25,7 +25,8 @@ export class ConsultaPage implements OnInit {
     public navCtrl: NavController,
     public service: ConsultaService,
     public modalCtrl: ModalController,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,
+    public loadingCtrl: LoadingController) {
   }
 
   ngOnInit() {
@@ -52,20 +53,25 @@ export class ConsultaPage implements OnInit {
     this.service.getlastStage()
       .subscribe(res => {
         this.lastStage.push(res);
-      });    
+      });
   }
 
   consultar(email): void {
+    const loader = this.loadingCtrl.create({
+      content: "Reeema ...",
+      duration: 2000
+    });
+    loader.present();
     console.log(email.viewModel);
     this.service.listBet(email.viewModel)
       .subscribe(res => {
         this.aposta = res;
-        this.lastId = this.aposta.list[this.aposta.list.length - 1 ]._id;
+        this.lastId = this.aposta.list[this.aposta.list.length - 1]._id;
         this.viewEdit = false;
-    this.consulta = true;
+        this.consulta = true;
       });
 
-    
+
   }
 
   onSubmit(editar) {
