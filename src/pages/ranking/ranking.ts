@@ -30,7 +30,7 @@ export class RankingPage implements OnInit {
 
   ngOnInit() {
     const loader = this.loadingCtrl.create({
-      content: "A serie ta chegando...",
+      content: "A série tá chegando...",
       duration: 2000
     });
     loader.present();

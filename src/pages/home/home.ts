@@ -15,7 +15,7 @@ export class HomePage implements OnInit {
 
     ngOnInit() {
     const loader = this.loadingCtrl.create({
-      content: "Please wait...",
+      content: "Carregando",
       duration: 1000
     });
     loader.present();
