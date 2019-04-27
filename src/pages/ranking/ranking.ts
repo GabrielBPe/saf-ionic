@@ -19,10 +19,11 @@ export class RankingPage implements OnInit {
   rankingAustralia: boolean = false;
   rankingEuropa: boolean = false;
 
-  apostas: any[] = [];
+  apostasGold: any[] = [];
+  apostasBells: any[] = [];
 
-
-
+  GoldCoastView: boolean = true;
+  BellsView: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public service: RankingService, public loadingCtrl: LoadingController) {
 
@@ -31,16 +32,25 @@ export class RankingPage implements OnInit {
   ngOnInit() {
     const loader = this.loadingCtrl.create({
       content: "A série tá chegando...",
-      duration: 2000
+      duration: 3000
     });
     loader.present();
-    this.getRanking();
+    this.getRankingGold();
+    this.getRankingBells();
   }
 
-  getRanking(): void {
-    this.service.getRanking()
+  getRankingGold(): void {
+    this.service.getRankingGold()
       .subscribe(res => {
-        this.apostas = res.list;
+        this.apostasGold = res.list;
+        console.log(res)
+      });
+  }
+
+  getRankingBells(): void {
+    this.service.getRankingBells()
+      .subscribe(res => {
+        this.apostasBells = res.list;
         console.log(res)
       });
   }
@@ -49,28 +59,24 @@ export class RankingPage implements OnInit {
     console.log('ionViewDidLoad RankingPage');
   }
 
-  ano() {
-    this.rankingAno = true;
-    this.rankingAustralia = false;
-    this.rankingEuropa = false;
-
+  goldCoast() {
+    const loader = this.loadingCtrl.create({
+      content: "A série tá chegando...",
+      duration: 1000
+    });
+    loader.present();
+    this.GoldCoastView = true;
+    this.BellsView = false;
   }
 
-  europa() {
-    this.rankingAno = false;
-    this.rankingAustralia = false;
-    this.rankingEuropa = true;
-
-
+  bells() {
+    const loader = this.loadingCtrl.create({
+      content: "A série tá chegando...",
+      duration: 1000
+    });
+    loader.present();
+    this.BellsView = true;
+    this.GoldCoastView = false;
   }
-
-  australia() {
-    this.rankingAno = false;
-    this.rankingAustralia = true;
-    this.rankingEuropa = false;
-
-
-  }
-
 
 }

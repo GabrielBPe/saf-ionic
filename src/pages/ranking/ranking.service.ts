@@ -18,8 +18,15 @@ export class RankingService {
     this.http = http;
   }
 
-  getRanking():  Observable < any > {
-    return this.http.get(`http://13.58.115.13:5000/v1/aposta/ranking`)
+  getRankingGold():  Observable < any > {
+    return this.http.get(`http://13.58.115.13:5000/v1/aposta/gold`)
+    .pipe(
+      map(res => res)
+    )
+  }
+
+  getRankingBells():  Observable < any > {
+    return this.http.get(`http://13.58.115.13:5000/v1/aposta/bells`)
     .pipe(
       map(res => res)
     )
