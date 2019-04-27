@@ -21,14 +21,14 @@
 
 
   <ion-item-group *ngIf='GoldCoastView'>
-    <ion-item-divider color="light">Ranking SAF</ion-item-divider>
+    <ion-item-divider color="light">Ranking Gold Coast</ion-item-divider>
     <ion-item *ngFor='let e of apostasGold' class="size-label-ranking">{{ e.nickname }}
       <span>{{ e.points }}</span>
     </ion-item>
   </ion-item-group>
 
   <ion-item-group *ngIf='BellsView'>
-    <ion-item-divider color="light">Ranking SAF</ion-item-divider>
+    <ion-item-divider color="light">Ranking Bells Beach</ion-item-divider>
     <ion-item *ngFor='let e of apostasBells' class="size-label-ranking">{{ e.nickname }}
       <span>{{ e.points }}</span>
     </ion-item>
