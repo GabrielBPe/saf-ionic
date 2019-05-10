@@ -7,19 +7,19 @@
 </ion-header>
 
 <ion-content>
-<!--    
+
 
   <form #aposta="ngForm" (ngSubmit)="onSubmit(aposta)">
     <ion-list>
-        <ion-item>
-            <ion-label>Etapa</ion-label>
-            <ion-select  name="id_Etapa" ngModel  #campeao="ngModel">
-              <ion-option *ngFor='let e of etapas' value={{e.list._id}}>{{ e.list.name }}</ion-option>
-            </ion-select>
-          </ion-item>
-      <ion-item> 
+      <ion-item>
+        <ion-label>Etapa</ion-label>
+        <ion-select name="id_Etapa" ngModel #campeao="ngModel">
+          <ion-option *ngFor='let e of etapas' value={{e.list._id}}>{{ e.list.name }}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
         <ion-label>Campeão</ion-label>
-        <ion-select  name="id_Campeao" ngModel required #campeao="ngModel">
+        <ion-select name="id_Campeao" ngModel required #campeao="ngModel">
           <ion-option *ngFor='let s of surfistas.list' value="{{s._id}}">{{ s.name }}</ion-option>
         </ion-select>
       </ion-item>
@@ -50,29 +50,38 @@
 
       <ion-item>
         <ion-label>Nickname:</ion-label>
-        <ion-input name='nickname' placeholder='Seu nome sem espaço' ngModel required #nickname="ngModel" type="text"></ion-input>
+        <ion-input name='nickname' placeholder='Seu nome sem espaço' ngModel required #nickname="ngModel" type="text">
+        </ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Email:</ion-label>
-        <ion-input name='email' [(ngModel)]='apostador.email' required #email="ngModel" minlength='7' type="email"></ion-input>
+        <ion-input name='email' [(ngModel)]='apostador.email' required #email="ngModel" minlength='7' type="email">
+        </ion-input>
       </ion-item>
 
     </ion-list>
     <button class="btn-verde" ion-button full [disabled]="!aposta.valid" type="submit">SALVAR APOSTA</button>
-  </form> -->
+  </form>
 
   <ion-card>
-      <img src="../../assets/imgs/bellsbeach.jpeg"/>
-      <ion-card-content>
-        <ion-card-title>
-          BELLS BEACH
-          </ion-card-title>
-        <p>
-          Realizada desde 1962, a etapa de Bells Beach é a mais antiga do Circuito Mundial. Os tradicionais picos de Rincon e Bell’s Bowl produzem ondas cheias que, apesar de parecerem fáceis, exigem muita leitura e técnica por parte dos surfistas. Uma boa pedida para as apostas é escolher atletas com bom “rail game”, ou seja, que conseguem cravar a borda e desenhar longos arcos nas paredes da onda. Já se o campeonato for levado para Winkipop, o cenário muda um pouco, porque a vala mais em pé permite manobras mais verticais e progressivas.<br>
-            <b>Atual Campeão</b> - Italo Ferreira
-        </p>
-      </ion-card-content>
-    </ion-card>
+    <img src="../../assets/imgs/resenhakeramas.jpeg" />
+    <ion-card-content>
+      <ion-card-title>
+        BELLS BEACH
+      </ion-card-title>
+      <p>
+        As direitas perfeitas e altamente performáticas de Keramas são palco do Corona Bali Pro, terceira etapa do
+        Circuito Mundial 2019.
+
+        A onda é cavada e possibilita uma combinação bem diversificada de manobras. Depois de primeira seção tubular, os
+        surfistas têm boas paredes para soltar o jogo de borda e extrapolar nos aéreos.
+
+        Italo Ferreira é o defensor do título do ano passado e, na segunda colocação do ranking, está de olho na lycra
+        amarela de John John Florence. Aliás, a disputa será eletrizante porque o top 5 é completado por Jordy Smith,
+        Filipe Toledo e Gabriel Medina. <b>Atual Campeão</b> - Italo Ferreira
+      </p>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
