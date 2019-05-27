@@ -9,7 +9,7 @@
 <ion-content>
 
   <div *ngIf='consulta'><button class="btn-cinza" ion-button full (click)="novaConsulta()">Nova Consulta</button></div>
-  <div *ngIf='consulta'><button class="btn-cinza" ion-button disabled full (click)="edita()">Editar</button></div>
+  <div *ngIf='consulta'><button class="btn-cinza" ion-button full (click)="edita()">Editar</button></div>
 
 
   <div *ngIf='!consulta'>
@@ -101,7 +101,7 @@
         </ion-item>
 
       </ion-list>
-      <button class="btn-cinza" ion-button full disabled type="submit">Salvar Apostar</button>
+      <button class="btn-cinza" ion-button full disabled type="submit">Editar Aposta</button>
     </form>
 
   </div>
