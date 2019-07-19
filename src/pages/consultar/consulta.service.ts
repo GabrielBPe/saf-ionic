@@ -21,30 +21,30 @@ export class ConsultaService {
   }
 
   getTodo(): Observable<SurferModel[]>{
-    return this.http.get<SurferModel[]>(`http://13.58.115.13:5000/v1/surfista`)
+    return this.http.get<SurferModel[]>(`http://13.58.162.16:5000/v1/surfista`)
     .pipe(
       map(res => res)
     )
   }
 
   editBet(editar): Observable<any> {
-    return this.http.put(`http://13.58.115.13:5000/v1/aposta/${editar.value._id}`, editar.value);
+    return this.http.put(`http://13.58.162.16:5000/v1/aposta/${editar.value._id}`, editar.value);
   }
 
   listBet(email): Observable<any> {
-    return this.http.get( `http://13.58.115.13:5000/v1/aposta/${email}`).pipe(
+    return this.http.get( `http://13.58.162.16:5000/v1/aposta/${email}`).pipe(
       map(res => res)
     );
   }
 
   listStage(): Observable<EtapaModel[]> {
-    return this.http.get<EtapaModel[]>( `http://13.58.115.13:5000/v1/etapa`).pipe(
+    return this.http.get<EtapaModel[]>( `http://13.58.162.16:5000/v1/etapa`).pipe(
       map(res => res)
     );
   }
 
   getlastStage(): Observable<EtapaModel[]> {
-    return this.http.get<EtapaModel[]>( `http://13.58.115.13:5000/v1/etapa/ultima`).pipe(
+    return this.http.get<EtapaModel[]>( `http://13.58.162.16:5000/v1/etapa/ultima`).pipe(
       map(res => res)
     );
   }
