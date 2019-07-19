@@ -19,14 +19,14 @@ export class RankingService {
   }
 
   getRankingGold():  Observable < any > {
-    return this.http.get(`http://13.58.162.16:5000/v1/aposta/jbay`)
+    return this.http.get(`http://18.220.22.75:5000/v1/aposta/jbay`)
     .pipe(
       map(res => res)
     )
   }
 
   getRankingBells():  Observable < any > {
-    return this.http.get(`http://13.58.162.16:5000/v1/aposta/bells`)
+    return this.http.get(`http://18.220.22.75:5000/v1/aposta/bells`)
     .pipe(
       map(res => res)
     )
