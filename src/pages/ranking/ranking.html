@@ -15,13 +15,13 @@
 
 <ion-content>
   <div class="btns-ranking">
-    <button class="btn-small" ion-button small (click)='goldCoast()'>Gold Coast</button>
-    <button class="btn-small" ion-button small (click)='bells()'>Bells</button>
+    <button class="btn-small" ion-button small (click)='goldCoast()'>J Bay</button>
+    <!-- <button class="btn-small" ion-button small (click)='bells()'>Bells</button> -->
   </div>
 
 
   <ion-item-group *ngIf='GoldCoastView'>
-    <ion-item-divider color="light">Ranking Bells</ion-item-divider>
+    <ion-item-divider color="light">Ranking J Bay</ion-item-divider>
     <ion-item *ngFor='let e of apostasGold' class="size-label-ranking">{{ e.nickname }}
       <span>{{ e.points }}</span>
     </ion-item>
