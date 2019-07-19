@@ -56,7 +56,6 @@ export class RankingPage implements OnInit {
     });
     loader.present();
     this.GoldCoastView = true;
-    this.BellsView = false;
   }
 
 }
