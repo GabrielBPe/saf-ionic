@@ -23,7 +23,6 @@ export class RankingPage implements OnInit {
   apostasBells: any[] = [];
 
   GoldCoastView: boolean = true;
-  BellsView: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public service: RankingService, public loadingCtrl: LoadingController) {
 
@@ -36,21 +35,12 @@ export class RankingPage implements OnInit {
     });
     loader.present();
     this.getRankingGold();
-    this.getRankingBells();
   }
 
   getRankingGold(): void {
     this.service.getRankingGold()
       .subscribe(res => {
         this.apostasGold = res.list;
-        console.log(res)
-      });
-  }
-
-  getRankingBells(): void {
-    this.service.getRankingBells()
-      .subscribe(res => {
-        this.apostasBells = res.list;
         console.log(res)
       });
   }
@@ -67,16 +57,6 @@ export class RankingPage implements OnInit {
     loader.present();
     this.GoldCoastView = true;
     this.BellsView = false;
-  }
-
-  bells() {
-    const loader = this.loadingCtrl.create({
-      content: "A série tá chegando...",
-      duration: 1000
-    });
-    loader.present();
-    this.BellsView = true;
-    this.GoldCoastView = false;
   }
 
 }

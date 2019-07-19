@@ -19,7 +19,7 @@ export class RankingService {
   }
 
   getRankingGold():  Observable < any > {
-    return this.http.get(`http://13.58.115.13:5000/v1/aposta/gold`)
+    return this.http.get(`http://13.58.115.13:5000/v1/aposta/jbay`)
     .pipe(
       map(res => res)
     )
