@@ -9,7 +9,7 @@
 <ion-content>
 
   <div *ngIf='consulta'><button class="btn-cinza" ion-button full (click)="novaConsulta()">Nova Consulta</button></div>
-  <div *ngIf='consulta'><button class="btn-cinza" disabled ion-button full (click)="edita()">Editar</button></div>
+  <div *ngIf='consulta'><button class="btn-cinza"  ion-button full (click)="edita()">Editar</button></div>
 
 
   <div *ngIf='!consulta'>
@@ -24,7 +24,6 @@
       </ion-list>
     </form>
   </div>
-
 
   <div *ngIf='consulta'>
     <ion-card *ngFor='let c of aposta.list'>
